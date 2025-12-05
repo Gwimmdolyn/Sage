@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KnowledgeGraph.cs" />
+    <Compile Include="KnowledgeNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SageApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
