@@ -54,5 +54,13 @@ namespace Sage
             return results;
         }
 
+        public void LinkNodes(int a, int b)
+        {
+            if (_nodes.ContainsKey(a)  && _nodes.ContainsKey(b))// Checks that both node IDs exist in the dictionary
+            {
+                _nodes[a].AddLink(b);// Add a link from node A to node B
+                _nodes[b].AddLink(a);// Add a link from node B to node A
+            }
+        }
     }
 }
