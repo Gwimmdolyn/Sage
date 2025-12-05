@@ -22,7 +22,7 @@ namespace Sage
             LinkedNodes = new List<int>();
         }
 
-        public void Edit()
+        public void Edit(string newTitle, string newContent)
         {
             Title = newTitle;
             Content = newContent;
