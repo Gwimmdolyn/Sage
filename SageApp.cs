@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -96,7 +97,7 @@ namespace Sage
                 return;
             }
 
-            // Asls tje user for the updated title and content
+            // Asks the user for the updated title and content
             Console.WriteLine("New Title: ");
             string title = Console.ReadLine();
             Console.WriteLine("New Content: ");
@@ -110,7 +111,14 @@ namespace Sage
 
         private void LinkNodes()
         {
+            Console.WriteLine("First node ID: ");// Asks the user for the first node ID
+            int a = int.Parse(Console.ReadLine());// Converts the input to an integer
 
+            Console.WriteLine("Second node ID: ");// Asks the user for the second node ID
+            int b = int.Parse(Console.ReadLine());// Converts the input to an integer
+
+            _graph.LinkNodes(a, b);// Creates a link between the nodes
+            Console.WriteLine("Nodes linked.");
         }
 
         private void SearchNodes()
