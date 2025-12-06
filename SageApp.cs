@@ -34,7 +34,7 @@ namespace Sage
                     case "3": EditNode(); break;
                     case "4": LinkNodes(); break;
                     case "5": SearchNodes(); break;
-                    case "6": ListNodes(); break;
+                    case "6": ListAllNodes(); break;
                     
                     // Handles invalid inputs
                     default: Console.WriteLine("Invalid option."); break;
@@ -132,11 +132,13 @@ namespace Sage
                 Console.WriteLine($"[{n.Id}] {n.Title}");
         }
 
-        private void ListNodes()
+        private void ListAllNodes()
         {
-
+            Console.WriteLine("All Nodes: ");// Label so the user knows whats being shown
+            foreach (var n in _graph.GetAllNodes())// Loop through every node returned by the knowledge graph
+            {
+                Console.WriteLine($"[{n.Id}] {n.Title}");// Print each nodes ID and title 
+            }
         }
-
-
     }
 }

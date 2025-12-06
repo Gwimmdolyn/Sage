@@ -62,5 +62,17 @@ namespace Sage
                 _nodes[b].AddLink(a);// Add a link from node B to node A
             }
         }
+
+        public List<KnowledgeNode> GetAllNodes()
+        {
+            List<KnowledgeNode> results = new List<KnowledgeNode>();// Creates a new list that will hold all nodes in the graph
+
+            // Loops through every node dtored in the dictionary
+            foreach (var node in _nodes.Values)
+            {
+                results.Add(node);// Add each node to the results list
+            }
+            return results;// Return the full list of nodes
+        }
     }
 }
