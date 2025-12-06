@@ -123,7 +123,13 @@ namespace Sage
 
         private void SearchNodes()
         {
+            Console.WriteLine("Search query: ");// asks the user for the search text
+            string query = Console.ReadLine();
 
+            var results = _graph.Search(query);// Performs a search in the knowledge graph based on the query
+
+            foreach (var n in results)// Displays each matching node by ID and title
+                Console.WriteLine($"[{n.Id}] {n.Title}");
         }
 
         private void ListNodes()
