@@ -10,6 +10,8 @@ namespace Sage
     {
         static void Main(string[] args)
         {
+            var app = new SageApp();
+            app.Run();
         }
     }
 }
