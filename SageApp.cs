@@ -35,6 +35,7 @@ namespace Sage
                     case "4": LinkNodes(); break;
                     case "5": SearchNodes(); break;
                     case "6": ListAllNodes(); break;
+                    case "7": return;
                     
                     // Handles invalid inputs
                     default: Console.WriteLine("Invalid option."); break;
