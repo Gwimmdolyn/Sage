@@ -52,7 +52,37 @@ namespace Sage
             Console.WriteLine($"Node created with ID {node.Id}");// Confirms creation to the user
         }
 
+        private void ViewNode()
+        {
+            Console.WriteLine("Enter ID: ");// asks the user for the node ID
+            if (!int.TryParse( Console.ReadLine(), out int id))// if true then sends the user a message if they entered a invalid number
+            {
+                Console.WriteLine("Invalid ID.");
+                return;// Stops because the user did not enter a valid number
+            }
 
+            // Attempts to retrieve the node from the graph
+            var node = _graph.GetNode(id);
+            if (node == null)
+            {
+                Console.WriteLine("Node not found.");
+                return;// Stops if the node doesnt exist
+            }
+
+            // Displays the nodes information
+            Console.WriteLine($"\nID: {node.Id}");
+            Console.WriteLine($"Title: {node.Title}");
+            Console.WriteLine($"Content: {node.Content}");
+            Console.WriteLine($"Links: ");
+
+            // Displays each linked node by ID and title
+            foreach (var linkId in node.LinkedNodes)
+            {
+                var linked = _graph.GetNode(linkId);
+                if (linked != null)
+                    Console.WriteLine($"- [{linked.Id} {linked.Title}]");
+            }
+        }
 
     }
 }
