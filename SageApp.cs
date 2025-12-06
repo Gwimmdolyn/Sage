@@ -5,11 +5,17 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sage
+namespace SageNew
 {
     public class SageApp
     {
         private readonly KnowledgeGraph _graph = new KnowledgeGraph();// The knowledge graph that stores all nodes and relationships
+
+        public SageApp()
+        {
+            _graph = new KnowledgeGraph();
+            _graph.AddSubscriber(new Logs());// Observer Pattern
+        }
 
         public void Run()
         {

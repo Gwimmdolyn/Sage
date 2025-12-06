@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Sage
+namespace SageNew
 {
     public class KnowledgeGraph : IObserver
     {
