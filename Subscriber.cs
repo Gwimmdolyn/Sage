@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sage
 {
-    public interface Subscriber
+    public interface ISubscriber
     {
         void Update(string message);
     }

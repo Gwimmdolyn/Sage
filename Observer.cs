@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sage
 {
-    public interface Observer
+    public interface IObserver
     {
-        void AddSubscriber(Subscriber subscriber);
-        void RemoveSubscriber(Subscriber subscriber);
+        void AddSubscriber(ISubscriber subscriber);
+        void RemoveSubscriber(ISubscriber subscriber);
         void NotifySubscribers(string message);
     }
 }

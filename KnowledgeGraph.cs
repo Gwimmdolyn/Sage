@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Sage
 {
-    public class KnowledgeGraph
+    public class KnowledgeGraph : IObserver
     {
         // Stores all KnowledgeNode objects using their ID as the key
         private readonly Dictionary<int, KnowledgeNode> _nodes = new Dictionary<int, KnowledgeNode>();
         private int _nextId = 1;// Tracks the next unique ID to assign when creating a node
+        private List<ISubscriber> _subscribers = new List<ISubscriber>();
 
         public KnowledgeNode CreateNode(string title, string content)
         {
@@ -73,6 +75,28 @@ namespace Sage
                 results.Add(node);// Add each node to the results list
             }
             return results;// Return the full list of nodes
+        }
+
+
+        // ---------------------------------
+        // Observer Pattern 
+        // ---------------------------------
+        public void AddSubscriber(ISubscriber subscriber)
+        {
+            _subscribers.Add(subscriber);
+        }
+
+        public void RemoveSubscriber(ISubscriber subscriber)
+        {
+            _subscribers.Remove(subscriber);
+        }
+
+        public void NotifySubscribers(string message)
+        {
+            foreach (var subscriber in _subscribers)
+            {
+                subscriber.Update(message);
+            }
         }
     }
 }
