@@ -19,6 +19,7 @@ namespace Sage
             var node = new KnowledgeNode(_nextId, title, content);// Create a new node with a unique ID
             _nodes[node.Id] = node;// Add the node to the dictionary so it can be retrieved later
             _nextId++;// Increment the ID counter for the next created node
+            NotifySubscribers($"Created Node {node.Id}: {title}");// notifys the subscribers about the new node
             return node;
         }
 
@@ -62,6 +63,8 @@ namespace Sage
             {
                 _nodes[a].AddLink(b);// Add a link from node A to node B
                 _nodes[b].AddLink(a);// Add a link from node B to node A
+
+                NotifySubscribers($"Linked Nodes {a} and {b}");// Notifys the subscribers about the new link
             }
         }
 
