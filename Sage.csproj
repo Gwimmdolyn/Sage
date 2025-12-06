@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="KnowledgeGraph.cs" />
     <Compile Include="KnowledgeNode.cs" />
+    <Compile Include="Logs.cs" />
     <Compile Include="Observer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
