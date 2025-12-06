@@ -55,7 +55,7 @@ namespace Sage
         private void ViewNode()
         {
             Console.WriteLine("Enter ID: ");// asks the user for the node ID
-            if (!int.TryParse( Console.ReadLine(), out int id))// if true then sends the user a message if they entered a invalid number
+            if (!int.TryParse( Console.ReadLine(), out int id))// if false then sends the user a message if they entered a invalid number
             {
                 Console.WriteLine("Invalid ID.");
                 return;// Stops because the user did not enter a valid number
@@ -83,6 +83,46 @@ namespace Sage
                     Console.WriteLine($"- [{linked.Id} {linked.Title}]");
             }
         }
+
+        private void EditNode()
+        {
+            Console.WriteLine("Enter ID: ");// Asks the user what node they want to edit
+            if (!int.TryParse(Console.ReadLine(), out int id)) return;// validates that the input is a number
+
+            var node = _graph.GetNode(id); // Attempts to retrieve the node from the graph
+            if (node == null)
+            {
+                Console.WriteLine("Node not found.");// notifys the user if the node doesnt exist
+                return;
+            }
+
+            // Asls tje user for the updated title and content
+            Console.WriteLine("New Title: ");
+            string title = Console.ReadLine();
+            Console.WriteLine("New Content: ");
+            string content = Console.ReadLine();
+
+            // Apply the edits to the node 
+            node.Edit(title, content);
+            // Conmfirms that the node has been updated to the user
+            Console.WriteLine("Node updated.");
+        }
+
+        private void LinkNodes()
+        {
+
+        }
+
+        private void SearchNodes()
+        {
+
+        }
+
+        private void ListNodes()
+        {
+
+        }
+
 
     }
 }
